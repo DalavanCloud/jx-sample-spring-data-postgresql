@@ -38,6 +38,21 @@ spec:
           periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
           successThreshold: {{ .Values.readinessProbe.successThreshold }}
           timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+        env:
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: postgres-password
+              name: {{ .Release.Name }}-postgres
         resources:
 {{ toYaml .Values.resources | indent 12 }}
+        volumeMounts:
+        - name: config-volume
+          mountPath: /opt/config
+      volumes:
+      - name: config-volume
+        configMap:
+          # Provide the name of the ConfigMap containing the files you want
+          # to add to the container
+          name: spring-config
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
