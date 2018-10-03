@@ -7,4 +7,4 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 data:
   application.properties: |-
-    spring.datasource.url=jdbc:postgresql://{{ .Release.Name }}-postgres:5432/postgres <1>
+    spring.datasource.url=jdbc:postgresql://{{ .Release.Name }}-postgres:5432/postgres
