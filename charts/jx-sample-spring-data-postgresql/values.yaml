@@ -32,4 +32,6 @@ readinessProbe:
   successThreshold: 1
   timeoutSeconds: 1
 terminationGracePeriodSeconds: 10
-postgresPassword: "notVerySec"
+# Sub chart values
+postgres:
+  postgresPassword: "notVerySec"
