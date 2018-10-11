@@ -8,8 +8,11 @@ metadata:
 {{- end }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
-{{- if .Values.service.annotations }}
   annotations:
+    release_time: "{{ .Release.Time }}"
+    release_name: "{{ .Release.Name }}"
+    creation_date: "{{ now }}"
+{{- if .Values.service.annotations }}
 {{ toYaml .Values.service.annotations | indent 4 }}
 {{- end }}
 spec:
