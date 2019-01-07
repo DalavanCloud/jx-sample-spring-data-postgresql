@@ -35,3 +35,6 @@ terminationGracePeriodSeconds: 10
 ## Sub chart values
 #postgres:
 #  postgresPassword: "notVerySec"
+postgres:
+  persistence:
+    enabled: false
