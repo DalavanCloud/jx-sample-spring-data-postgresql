@@ -1,0 +1,5 @@
++ make tag
+sed -i -e "s/version:.*/version: 0.1.21/" Chart.yaml
+sed -i -e "s|repository: .*|repository: 10.233.25.142:5000\/ascheman-jx\/jx-sample-spring-data-postgresql|" values.yaml
+sed -i -e "s/tag: .*/tag: 0.1.21/" values.yaml
+git add --all
